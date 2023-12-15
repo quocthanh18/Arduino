@@ -195,18 +195,17 @@ void loop() {
       Serial.println(error.c_str());
     }
   }
-  // Display bitmap images.
-  displayOLED(sensors);
 
   // Notify user
-  // handleNormalNoti(sensors, watered, emailUser);
-  // handleEmergencyNoti(sensors, emailUser);
+  handleNormalNoti(sensors, watered, emailUser);
+  handleEmergencyNoti(sensors, emailUser);
 
   //Send info to website
   websiteHandler(sensors, watered);
 
   //Send info to cloud
-  // cloudHandler(sensors);
+  cloudHandler(sensors);
 
-  delay(5000);
+  // Display bitmap images.
+  displayOLED(sensors);
 }

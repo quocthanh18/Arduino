@@ -1,22 +1,19 @@
-#include <DHT.h>
+#include <DHT.h>  
 #include <ArduinoJson.h>
 #include <SoftwareSerial.h>
 #include <Servo.h>
-#include <microTuple.h>
 
 //Pins
 const int dht_pin = 7;
 const int light_pin = A0;
 const int moisture_power_pin = 8;
 const int moisture_pin = A1;
-const int servo_pin = 9;
 const int relay_pin = 6;
 
 //
 const int wet = 400;
 const int dry = 850;
 
-Servo servo;
 SoftwareSerial send(13, 12); // RX, TX
 DHT dht(dht_pin, DHT11); //temp
 
@@ -29,15 +26,8 @@ void setup(){
   pinMode(light_pin, INPUT);
   digitalWrite(moisture_power_pin, LOW);
   dht.begin();
-  servo.attach(servo_pin);
-}
-void openServo(){
-  servo.write(90);
 }
 
-void closeServo(){
-  servo.write(0);
-}
 int readMoisture() {
 	digitalWrite(moisture_power_pin, HIGH);	
 	delay(10);							
@@ -46,45 +36,55 @@ int readMoisture() {
 	return val;							
 }
 
-bool mainLogic(int temp, int light, int moisture){
+bool mainLogic(int moisture){
   bool watered = false;
-  if( moisture < wet || moisture > dry){
-	  if( moisture < wet)
-	    openServo();
-    } else if(moisture > dry ) {
-  	  closeServo();
-	    //RELAY CALL
-	    digitalWrite(relay_pin, HIGH);
-      delay(5000);
-      digitalWrite(relay_pin, LOW);
-      watered = true;
-	    //RELAY STOP
-      }
-    if ( readMoisture() > dry )
-      closeServo();
-    else if ( readMoisture() < wet )
-      openServo();
-    return watered;
+  unsigned long startTime = millis(); 
+  unsigned long timeout = 5000;  
+  while ( readMoisture() > dry )
+  {
+    if (millis() - startTime > timeout) {
+      break; 
+    }
+    digitalWrite(relay_pin, HIGH);
+    watered = true;
+    delay(1500);
+    digitalWrite(relay_pin, LOW);
+  }
+  digitalWrite(relay_pin, LOW);
+  return watered;
 }
 
-void sendInfo(int temp, int light, int moisture, bool watered, bool servo_state){
+
+void sendInfo(int temp, int light, int moisture, bool watered){
   StaticJsonDocument<200> sensor;
   sensor["temp"] = temp;
   sensor["moisture"] = moisture;
   sensor["light"] = light;
   sensor["watered"] = watered;
-  sensor["servo_state"] = servo_state;
   serializeJson(sensor, send);
   send.println();
 }
+
+void receiveInfo()
+{
+  if ( send.available())
+  {
+    bool turn_relay = send.readString() == "true" ? 1 : 0;
+    digitalWrite(relay_pin, turn_relay);
+    delay(5000);
+    digitalWrite(relay_pin, !turn_relay);
+  }
+}
+
 void loop(){
   int temp = dht.readTemperature();
   int moisture = readMoisture();
   int light = analogRead(light_pin);
-  bool watered = mainLogic(temp, light, moisture);
-  sendInfo(temp, light, moisture, watered, servo.read());
-  delay(15000);
-  int pos;
-
+  // bool watered = mainLogic(moisture);
+  sendInfo(temp, light, moisture, true);
+  Serial.println(temp);
+  Serial.println(moisture);
+  Serial.println(light);
+  delay(10000);
 }
 

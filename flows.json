@@ -1,5 +1,274 @@
 [
     {
+        "id": "3254b01f6e0ed3d3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0249da844adfee4a",
+        "type": "ui_gauge",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "group": "ab5f47d72dac518e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "10",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00a1e6",
+            "#23c021",
+            "#df4949"
+        ],
+        "seg1": "10",
+        "seg2": "40",
+        "diff": false,
+        "className": "",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e6d293766a203943",
+        "type": "ui_gauge",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "group": "89c10a18418b3f95",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Moisture",
+        "label": "",
+        "format": "",
+        "min": "100",
+        "max": "1024",
+        "colors": [
+            "#00a1e6",
+            "#23c021",
+            "#df4949"
+        ],
+        "seg1": "400",
+        "seg2": "850",
+        "diff": false,
+        "className": "",
+        "x": 320,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "e98b2210e2ffc5ad",
+        "type": "ui_button",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "group": "099eb4890e2bce8e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Water",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "#1E90FF",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "str",
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "669e9b06800e91f1",
+                "4ceaa342e2e89811"
+            ]
+        ]
+    },
+    {
+        "id": "1640da6e350665d0",
+        "type": "ui_gauge",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "group": "61de6bdccb103584",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Light",
+        "label": "units",
+        "format": "10",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00a1e6",
+            "#23c021",
+            "#df4949"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 310,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "0347acd47096cc8a",
+        "type": "ui_text",
+        "z": "3254b01f6e0ed3d3",
+        "group": "94ddd947213ab825",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Has been watered ? ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 880,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "391498dc8d06dee0",
+        "type": "http request",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "api.thingspeak.com/channels/2373265/fields/1.json?api_key=MDY5P3TPWWXKGRAG&results=50",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "42278b485e977a8b"
+            ]
+        ]
+    },
+    {
+        "id": "a67c3c5e2016736f",
+        "type": "mqtt in",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "topic": "21127428_21127273/Temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "205bdd746bf6b4a3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "0249da844adfee4a"
+            ]
+        ]
+    },
+    {
+        "id": "6efd4f670957dd3b",
+        "type": "mqtt in",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "topic": "21127428_21127273/Moist",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "205bdd746bf6b4a3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "e6d293766a203943"
+            ]
+        ]
+    },
+    {
+        "id": "dcb075e36f73c84d",
+        "type": "mqtt in",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "topic": "21127428_21127273/Light",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "205bdd746bf6b4a3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "1640da6e350665d0"
+            ]
+        ]
+    },
+    {
+        "id": "42278b485e977a8b",
+        "type": "function",
+        "z": "3254b01f6e0ed3d3",
+        "name": "function 1",
+        "func": "var feeds = msg.payload.feeds;\nvar data1 = [];\n\nfeeds.forEach(function(feed) {\n    var timestamp = new Date(feed.created_at);\n    if(feed.field1 !== undefined) {\n        data1.push({ \"x\": timestamp.getTime(), \"y\": parseFloat(feed.field1) });\n    }\n    // Add similar blocks for field2 and field3 if they are present in your data\n});\n\nmsg.payload = [\n    { \"series\": [\"Temperature\"], \"data\": [data1], \"labels\": [\"\"] }\n    // Add similar objects for Moisture and Light series\n];\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 540,
+        "wires": [
+            [
+                "1985545d78c8ff55",
+                "f86d7c881bce5bca"
+            ]
+        ]
+    },
+    {
+        "id": "8d198a758cda0d67",
+        "type": "inject",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 480,
+        "wires": [
+            [
+                "391498dc8d06dee0"
+            ]
+        ]
+    },
+    {
         "id": "1985545d78c8ff55",
         "type": "ui_chart",
         "z": "3254b01f6e0ed3d3",
@@ -44,6 +313,411 @@
         ]
     },
     {
+        "id": "f86d7c881bce5bca",
+        "type": "debug",
+        "z": "3254b01f6e0ed3d3",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "0c4a18763c2101bb",
+        "type": "mqtt in",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "topic": "21127428_21127273/Water_state",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "205bdd746bf6b4a3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "0347acd47096cc8a"
+            ]
+        ]
+    },
+    {
+        "id": "669e9b06800e91f1",
+        "type": "mqtt out",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "topic": "21127428_21127273/Water_btn",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "205bdd746bf6b4a3",
+        "x": 610,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "72150d377f3764c2",
+        "type": "http request",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "api.thingspeak.com/channels/2373265/fields/2.json?api_key=MDY5P3TPWWXKGRAG&results=50",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 230,
+        "y": 780,
+        "wires": [
+            [
+                "e847520d2d2fe1ee"
+            ]
+        ]
+    },
+    {
+        "id": "e847520d2d2fe1ee",
+        "type": "function",
+        "z": "3254b01f6e0ed3d3",
+        "name": "function 2",
+        "func": "var feeds = msg.payload.feeds;\nvar data1 = [];\n\nfeeds.forEach(function(feed) {\n    var timestamp = new Date(feed.created_at);\n    if(feed.field2 !== undefined) {\n        data1.push({ \"x\": timestamp.getTime(), \"y\": parseFloat(feed.field2) });\n    }\n    // Add similar blocks for field2 and field3 if they are present in your data\n});\n\nmsg.payload = [\n    { \"series\": [\"Moisture\"], \"data\": [data1], \"labels\": [\"\"] }\n    // Add similar objects for Moisture and Light series\n];\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 780,
+        "wires": [
+            [
+                "878c3755ff0c25e9",
+                "0532c463dff1b145"
+            ]
+        ]
+    },
+    {
+        "id": "46faeb91a838fb07",
+        "type": "inject",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 640,
+        "wires": [
+            [
+                "72150d377f3764c2"
+            ]
+        ]
+    },
+    {
+        "id": "878c3755ff0c25e9",
+        "type": "ui_chart",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "group": "26e510a2b6a92115",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Soil Moisture",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 650,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0532c463dff1b145",
+        "type": "debug",
+        "z": "3254b01f6e0ed3d3",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "f64c7cd7ebda02b8",
+        "type": "http request",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "api.thingspeak.com/channels/2373265/fields/3.json?api_key=MDY5P3TPWWXKGRAG&results=50",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 250,
+        "y": 940,
+        "wires": [
+            [
+                "bdd13a8ba0b8dc7a"
+            ]
+        ]
+    },
+    {
+        "id": "bdd13a8ba0b8dc7a",
+        "type": "function",
+        "z": "3254b01f6e0ed3d3",
+        "name": "function 3",
+        "func": "var feeds = msg.payload.feeds;\nvar data1 = [];\n\nfeeds.forEach(function(feed) {\n    var timestamp = new Date(feed.created_at);\n    if(feed.field3 !== undefined) {\n        data1.push({ \"x\": timestamp.getTime(), \"y\": parseFloat(feed.field3) });\n    }\n    // Add similar blocks for field2 and field3 if they are present in your data\n});\n\nmsg.payload = [\n    { \"series\": [\"Light\"], \"data\": [data1], \"labels\": [\"\"] }\n    // Add similar objects for Moisture and Light series\n];\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 940,
+        "wires": [
+            [
+                "d308d8ab9c998665",
+                "2f87b4691bf54ca2"
+            ]
+        ]
+    },
+    {
+        "id": "f7dd9dd1fd9433f1",
+        "type": "inject",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 880,
+        "wires": [
+            [
+                "f64c7cd7ebda02b8"
+            ]
+        ]
+    },
+    {
+        "id": "d308d8ab9c998665",
+        "type": "ui_chart",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "group": "09da0586a31584a1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Light",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 650,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2f87b4691bf54ca2",
+        "type": "debug",
+        "z": "3254b01f6e0ed3d3",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "4ceaa342e2e89811",
+        "type": "debug",
+        "z": "3254b01f6e0ed3d3",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ab5f47d72dac518e",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "dde42e10647969a5",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "89c10a18418b3f95",
+        "type": "ui_group",
+        "name": "Moisture",
+        "tab": "dde42e10647969a5",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "099eb4890e2bce8e",
+        "type": "ui_group",
+        "name": "Instructions",
+        "tab": "98e1efa9f9885bdd",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "61de6bdccb103584",
+        "type": "ui_group",
+        "name": "Light",
+        "tab": "dde42e10647969a5",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "94ddd947213ab825",
+        "type": "ui_group",
+        "name": "Watered",
+        "tab": "dde42e10647969a5",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "205bdd746bf6b4a3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "945d130cbd7d0e3a",
         "type": "ui_group",
         "name": "Temperature",
@@ -53,6 +727,46 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "26e510a2b6a92115",
+        "type": "ui_group",
+        "name": "Soil Moisture",
+        "tab": "0d8163228ebd89d7",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "09da0586a31584a1",
+        "type": "ui_group",
+        "name": "Light",
+        "tab": "0d8163228ebd89d7",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dde42e10647969a5",
+        "type": "ui_tab",
+        "name": "Readings",
+        "icon": "fa-fire",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "98e1efa9f9885bdd",
+        "type": "ui_tab",
+        "name": "Instructions",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "0d8163228ebd89d7",

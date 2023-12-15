@@ -8,6 +8,267 @@
         "env": []
     },
     {
+        "id": "205bdd746bf6b4a3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ab5f47d72dac518e",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "dde42e10647969a5",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "89c10a18418b3f95",
+        "type": "ui_group",
+        "name": "Moisture",
+        "tab": "dde42e10647969a5",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "099eb4890e2bce8e",
+        "type": "ui_group",
+        "name": "Instructions",
+        "tab": "98e1efa9f9885bdd",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "61de6bdccb103584",
+        "type": "ui_group",
+        "name": "Light",
+        "tab": "dde42e10647969a5",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "94ddd947213ab825",
+        "type": "ui_group",
+        "name": "Watered",
+        "tab": "dde42e10647969a5",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "945d130cbd7d0e3a",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "0d8163228ebd89d7",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "26e510a2b6a92115",
+        "type": "ui_group",
+        "name": "Soil Moisture",
+        "tab": "0d8163228ebd89d7",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "09da0586a31584a1",
+        "type": "ui_group",
+        "name": "Light",
+        "tab": "0d8163228ebd89d7",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dde42e10647969a5",
+        "type": "ui_tab",
+        "name": "Readings",
+        "icon": "fa-fire",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "98e1efa9f9885bdd",
+        "type": "ui_tab",
+        "name": "Instructions",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0d8163228ebd89d7",
+        "type": "ui_tab",
+        "name": "Readings History",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ab1d75fc4fb82bc6",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "5a5dd042796874b9",
+        "type": "ui_tab",
+        "name": "Login",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ce4e76b58a09fac3",
+        "type": "ui_group",
+        "name": "login",
+        "tab": "5a5dd042796874b9",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "0249da844adfee4a",
         "type": "ui_gauge",
         "z": "3254b01f6e0ed3d3",
@@ -181,9 +442,7 @@
         "x": 110,
         "y": 260,
         "wires": [
-            [
-                "0249da844adfee4a"
-            ]
+            []
         ]
     },
     {
@@ -632,149 +891,258 @@
         "wires": []
     },
     {
-        "id": "ab5f47d72dac518e",
-        "type": "ui_group",
-        "name": "Temperature",
-        "tab": "dde42e10647969a5",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "89c10a18418b3f95",
-        "type": "ui_group",
-        "name": "Moisture",
-        "tab": "dde42e10647969a5",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "099eb4890e2bce8e",
-        "type": "ui_group",
-        "name": "Instructions",
-        "tab": "98e1efa9f9885bdd",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "61de6bdccb103584",
-        "type": "ui_group",
-        "name": "Light",
-        "tab": "dde42e10647969a5",
-        "order": 4,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "94ddd947213ab825",
-        "type": "ui_group",
-        "name": "Watered",
-        "tab": "dde42e10647969a5",
-        "order": 5,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "205bdd746bf6b4a3",
-        "type": "mqtt-broker",
+        "id": "b912800fc081e6bf",
+        "type": "ui_ui_control",
+        "z": "3254b01f6e0ed3d3",
         "name": "",
-        "broker": "broker.hivemq.com",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthRetain": "false",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closeRetain": "false",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willRetain": "false",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
+        "events": "all",
+        "x": 880,
+        "y": 200,
+        "wires": [
+            [
+                "fe91c2aaaf014423"
+            ]
+        ]
     },
     {
-        "id": "945d130cbd7d0e3a",
-        "type": "ui_group",
-        "name": "Temperature",
-        "tab": "0d8163228ebd89d7",
+        "id": "f23ceba5c4c39a41",
+        "type": "function",
+        "z": "3254b01f6e0ed3d3",
+        "name": "function 4",
+        "func": "if(msg.topic == \"username\"){\n    context.set(\"username\",msg.payload)\n}\nif (msg.topic == \"password\") {\n    context.set(\"password\", msg.payload)\n}\nif (msg.topic == \"login\") {\n    let username = context.get(\"username\");\n    let password = context.get(\"password\");\n    \n    if(password == \"12345\" && username==\"sa\"){\n        msg.payload =\"Welcome back\"\n        global.set(\"isLogin\",true);\n    }else{\n        msg.payload = \"Login invalid\"\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1260,
+        "wires": [
+            [
+                "3180ce96d9105e49",
+                "26634c503130b268"
+            ]
+        ]
+    },
+    {
+        "id": "3180ce96d9105e49",
+        "type": "debug",
+        "z": "3254b01f6e0ed3d3",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "61c30955ad08ed3f",
+        "type": "ui_button",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "group": "ce4e76b58a09fac3",
         "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Login",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "login",
+        "topicType": "str",
+        "x": 170,
+        "y": 1360,
+        "wires": [
+            [
+                "f23ceba5c4c39a41"
+            ]
+        ]
     },
     {
-        "id": "26e510a2b6a92115",
-        "type": "ui_group",
-        "name": "Soil Moisture",
-        "tab": "0d8163228ebd89d7",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "09da0586a31584a1",
-        "type": "ui_group",
-        "name": "Light",
-        "tab": "0d8163228ebd89d7",
+        "id": "1ff4dcd0b6108ff6",
+        "type": "ui_text_input",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "label": "Username",
+        "tooltip": "",
+        "group": "ce4e76b58a09fac3",
         "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "username",
+        "sendOnBlur": false,
+        "className": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 1200,
+        "wires": [
+            [
+                "f23ceba5c4c39a41"
+            ]
+        ]
     },
     {
-        "id": "dde42e10647969a5",
-        "type": "ui_tab",
-        "name": "Readings",
-        "icon": "fa-fire",
+        "id": "fb3e4e157b42cda7",
+        "type": "ui_text_input",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "label": "Password",
+        "tooltip": "",
+        "group": "ce4e76b58a09fac3",
         "order": 2,
-        "disabled": false,
-        "hidden": false
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "password",
+        "sendOnBlur": false,
+        "className": "",
+        "topicType": "str",
+        "x": 160,
+        "y": 1280,
+        "wires": [
+            [
+                "f23ceba5c4c39a41"
+            ]
+        ]
     },
     {
-        "id": "98e1efa9f9885bdd",
-        "type": "ui_tab",
-        "name": "Instructions",
-        "icon": "dashboard",
-        "order": 3,
-        "disabled": false,
-        "hidden": false
+        "id": "26634c503130b268",
+        "type": "ui_toast",
+        "z": "3254b01f6e0ed3d3",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": false,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 750,
+        "y": 1200,
+        "wires": []
     },
     {
-        "id": "0d8163228ebd89d7",
-        "type": "ui_tab",
-        "name": "Readings History",
-        "icon": "dashboard",
-        "order": 4,
-        "disabled": false,
-        "hidden": false
+        "id": "fe91c2aaaf014423",
+        "type": "function",
+        "z": "3254b01f6e0ed3d3",
+        "name": "function 5",
+        "func": "var isLogin = global.get(\"isLogin\") || false\nif (isLogin){\n    msg.payload = \"Hello user\"\n}else{\n    msg.payload = \"Hello guest\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 200,
+        "wires": [
+            [
+                "812c5ba916f091c5",
+                "a224bb605b6707d4"
+            ]
+        ]
+    },
+    {
+        "id": "cc4daa8a279dfc50",
+        "type": "ui_ui_control",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "events": "change",
+        "x": 1700,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6bdfe49e927e93a9",
+        "type": "change",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"tab\":\"Login\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1480,
+        "y": 240,
+        "wires": [
+            [
+                "cc4daa8a279dfc50"
+            ]
+        ]
+    },
+    {
+        "id": "812c5ba916f091c5",
+        "type": "switch",
+        "z": "3254b01f6e0ed3d3",
+        "name": "",
+        "property": "isLogin",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1290,
+        "y": 260,
+        "wires": [
+            [
+                "6bdfe49e927e93a9"
+            ],
+            [
+                "6bdfe49e927e93a9"
+            ]
+        ]
+    },
+    {
+        "id": "a224bb605b6707d4",
+        "type": "debug",
+        "z": "3254b01f6e0ed3d3",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1340,
+        "y": 140,
+        "wires": []
     }
 ]

@@ -85,6 +85,7 @@ void loop(){
   Serial.println(temp);
   Serial.println(moisture);
   Serial.println(light);
+  receiveInfo();
   delay(10000);
 }
 

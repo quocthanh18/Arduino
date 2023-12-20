@@ -16,8 +16,8 @@ Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, 
 SoftwareSerial sensor(14, 12);  //rx, tx
 //WiFi setup
 WiFiClient WiFiClient;
-const char* account = "Thanhdeptrai";
-const char* password = "0906264681";
+const char* account = "HCMUS Public";
+const char* password = "";
 
 //MQTT setup
 const char* mqttServer = "broker.hivemq.com";  //test.mosquitto.org //mqtt.eclipse.org //mqtt.flespi.io
@@ -94,11 +94,13 @@ void handleNormalNoti(const int value[], bool watered, const char* email){
   sendEmailNoti(cstrTopic, msg_, email);
 }
 
-void handleEmergencyNoti(const int value[], const char* email){
+void handleEmergencyNoti(const int value[], const char* email, bool watered){
   String fullTopic = "Arduino Smart Pot Emergency";
   const char* cstrTopic = fullTopic.c_str();
   String msg;
   String attr[3] = {"TEMPERATURE", "SOIL MOISTURE", "LIGHT"};
+  if ( value[1] > 850 && !watered)
+    msg += "OUT OF WATER ";
   for ( int i = 0; i < 3; i++)
   {
     if ( (value[i] < sensorThresholds[i][0]) || (value[i] > sensorThresholds[i][1]))
@@ -123,8 +125,10 @@ void callback(char* topic, byte* message, unsigned int length) {
   Serial.println(topic);
   //***Code here to process the received package***
   if ( String(topic) == "21127428_21127273/Water_btn")
+  {
     sensor.write(strMsg);
-
+    Serial.println(strMsg);
+  }
 }
 void displayOLED(const int sensors[3]){
   for (int i = 0; i < 3; i++) {
@@ -198,7 +202,7 @@ void loop() {
 
   // Notify user
   handleNormalNoti(sensors, watered, emailUser);
-  handleEmergencyNoti(sensors, emailUser);
+  handleEmergencyNoti(sensors, emailUser, watered);
 
   //Send info to website
   websiteHandler(sensors, watered);
@@ -208,4 +212,5 @@ void loop() {
 
   // Display bitmap images.
   displayOLED(sensors);
+
 }

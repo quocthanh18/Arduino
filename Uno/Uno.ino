@@ -12,7 +12,7 @@ const int relay_pin = 6;
 
 //
 const int wet = 400;
-const int dry = 850;
+const int dry = 900;
 
 SoftwareSerial send(13, 12); // RX, TX
 DHT dht(dht_pin, DHT11); //temp
@@ -36,19 +36,25 @@ int readMoisture() {
 	return val;							
 }
 
-bool mainLogic(int moisture){
+bool mainLogic(){
   bool watered = false;
   unsigned long startTime = millis(); 
-  unsigned long timeout = 5000;  
-  while ( readMoisture() > dry )
+  unsigned long timeout = 3000;  
+  while (readMoisture() > dry)
   {
-    if (millis() - startTime > timeout) {
-      break; 
-    }
     digitalWrite(relay_pin, HIGH);
-    watered = true;
-    delay(1500);
-    digitalWrite(relay_pin, LOW);
+    if (millis() - startTime > timeout) {
+      digitalWrite(relay_pin, LOW);
+      if(readMoisture() > dry){
+        digitalWrite(relay_pin, LOW);
+        return watered;
+      }
+      watered = true;
+    }
+    if(readMoisture() < dry){
+      digitalWrite(relay_pin, LOW);
+      return true;
+    }
   }
   digitalWrite(relay_pin, LOW);
   return watered;
@@ -80,12 +86,12 @@ void loop(){
   int temp = dht.readTemperature();
   int moisture = readMoisture();
   int light = analogRead(light_pin);
-  // bool watered = mainLogic(moisture);
-  sendInfo(temp, light, moisture, true);
+  bool watered = mainLogic();
+  sendInfo(temp, light, moisture, watered);
   Serial.println(temp);
   Serial.println(moisture);
   Serial.println(light);
+  Serial.println(watered);
   receiveInfo();
-  delay(10000);
+  delay(15000);
 }
-

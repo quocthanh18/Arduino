@@ -47,17 +47,16 @@ bool mainLogic(){
       digitalWrite(relay_pin, LOW);
       if(readMoisture() > dry){
         digitalWrite(relay_pin, LOW);
-        return watered;
+        return false;
       }
-      watered = true;
+      else
+	return true;
     }
     if(readMoisture() < dry){
       digitalWrite(relay_pin, LOW);
       return true;
     }
   }
-  digitalWrite(relay_pin, LOW);
-  return watered;
 }
 
 

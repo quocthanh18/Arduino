@@ -36,27 +36,31 @@ int readMoisture() {
 	return val;							
 }
 
-bool mainLogic(){
-  bool watered = false;
-  unsigned long startTime = millis(); 
-  unsigned long timeout = 3000;  
-  while (readMoisture() > dry)
-  {
+unsigned long startTime = millis();
+bool temp = false;
+//Bên ngoài hàm
+
+bool mainLogic() {
+  if (!temp) {
     digitalWrite(relay_pin, HIGH);
-    if (millis() - startTime > timeout) {
+    temp = true;
+  } else {
+    if (millis() - startTime > 3000) {
+      temp = false;
       digitalWrite(relay_pin, LOW);
-      if(readMoisture() > dry){
+      if (readMoisture() > dry) {
         digitalWrite(relay_pin, LOW);
         return false;
-      }
-      else
-	return true;
+      } else
+        temp = false;
+      return true;
     }
-    if(readMoisture() < dry){
+    if (readMoisture() < dry) {
       digitalWrite(relay_pin, LOW);
       return true;
     }
   }
+  return false
 }
 
 
